@@ -1,8 +1,8 @@
 import './App.css'
 import {useState} from "react";
-
 import Navigation from "./components/Navigation.jsx";
 import Body from "./components/Body.jsx";
+import {TwitterContext} from "./utils/context.js";
 
 
 function App() {
@@ -19,8 +19,12 @@ function App() {
 
     return (
         <div className={'app'}>
-            <Navigation user={user}/>
-            <Body stats={stats} user={user}/>
+            <TwitterContext.Provider value={{
+                user, stats
+            }}>
+                <Navigation/>
+                <Body/>
+            </TwitterContext.Provider>
         </div>
     )
 }
