@@ -16,14 +16,15 @@ function App() {
         following: 100
     });
 
-
     return (
-        <div className={'app'}>
+        <div className="app">
             <TwitterContext.Provider value={{
-                user, stats, setUser
+                user,
+                stats,
+                setUser
             }}>
-                <Navigation/>
-                <Body/>
+                <Navigation />
+                <Body />
             </TwitterContext.Provider>
         </div>
     )

@@ -1,11 +1,11 @@
 import {useContext} from "react";
 import {TwitterContext} from "../utils/context.js";
 
-const Avatar = ({size}) => {
-    const {user}= useContext(TwitterContext);
+const Avatar = ({ size }) => {
+    const { user, setUser } = useContext(TwitterContext);
 
-    const avatarReplacement = () => {
-        const newAvatarUrl = prompt("\n" + "Enter the URL for your avatar:");
+    const chengAvatar = () => {
+        const newAvatarUrl = prompt("Enter a new URL for the avatar:");
         if (newAvatarUrl) {
             setUser((prevUser) => ({
                 ...prevUser,
@@ -15,12 +15,13 @@ const Avatar = ({size}) => {
     };
 
     return (
-        <img className={`user-avatar ${size ?? ''}`}
+        <img
+            className={`user-avatar ${size ?? ''}`}
             src={user.avatar}
-             alt={user.name}
-             onClick={avatarReplacement}
+            alt={user.name}
+            onClick={chengAvatar}
         />
     );
-}
+};
 
 export default Avatar;
